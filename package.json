@@ -1,0 +1,18 @@
+{   "name"         : "findme"
+  , "version"      : "0.0.1"
+  , "description"  : "Geo Mashup"
+  , "author"       : "romanmt"
+  , "dependencies" : 
+    {   "cluster"      : "0.6.0"
+      , "express"      : "2.2.0"
+      , "jade"         : "0.10.6"
+      , "stylus"       : "0.11.10"
+      , "underscore"   : "1.1.5"
+      , "eyes"         : "0.1.6"
+      , "async"        : "0.1.9"
+      , "sinon"        : "1.1.1"
+      , "should"       : "0.2.1"
+      , "request"      : "2.0.1"
+    }
+  , "engines" : {"node" : "0.4.x" }
+}
