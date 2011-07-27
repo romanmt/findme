@@ -30,18 +30,26 @@ app.configure('production', function(){
 });
 
 // Routes
-
-app.get('/', function(req, res){
+var remoteIp = function (req) {
   var ip = req.connection.remoteAddress;
+  // for testing use google's address instead of localhost.
   if(ip === '127.0.0.1') {
     ip = '74.125.93.106'
   }
-  Geo.get(ip, function (geo) {
-    res.render('index', {
-      title : 'Express',
-      ip    : ip,
-      geo   : geo
-    });
+  return ip;
+}
+
+app.get('/', function(req, res){
+  res.render('index', {
+    title : 'Found you',
+    ip    : remoteIp(req)
   });
 });
 
+app.get('/geo', function (req, res) {
+  var ip = remoteIp(req); 
+  Geo.get(ip, function (geo) {
+    res.send(geo);
+  });
+ 
+});
